@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>SIH 26171</title>
+  <style>
+    body {
+      width: 360px;
+      font-family: -apple-system, Segoe UI, Roboto, sans-serif;
+      background: #0f1115;
+      color: #e6e8eb;
+      margin: 0;
+      padding: 14px;
+    }
+    h1 { font-size: 14px; margin: 0 0 2px; }
+    .subtitle { font-size: 11px; color: #8a8f98; margin-bottom: 12px; }
+    .phase-tag {
+      display: inline-block; font-size: 10px; background: #23262e;
+      color: #8ec8ff; padding: 2px 6px; border-radius: 4px; margin-bottom: 10px;
+    }
+    button {
+      width: 100%; padding: 9px; font-size: 13px; font-weight: 600;
+      background: #3d7bfd; color: white; border: none; border-radius: 6px;
+      cursor: pointer; margin: 6px 0;
+    }
+    button:disabled { background: #2a2d35; color: #6b7078; cursor: not-allowed; }
+    .status-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 11px;
+      background: #181b21; border-radius: 6px; padding: 8px; margin: 8px 0;
+    }
+    .status-row { display: flex; justify-content: space-between; }
+    .status-val { color: #8ec8ff; font-weight: 600; }
+    .timeline { list-style: none; padding: 0; margin: 10px 0; font-size: 12px; }
+    .timeline li { padding: 3px 0; color: #6b7078; }
+    .timeline li.done { color: #6bd68a; }
+    .timeline li.pending { color: #6b7078; }
+    .not-implemented { color: #55585f; font-style: italic; }
+    #elements {
+      max-height: 140px; overflow-y: auto; font-size: 11px; font-family: monospace;
+      background: #181b21; border-radius: 6px; padding: 6px; margin-top: 6px;
+    }
+    .el-row { padding: 2px 0; border-bottom: 1px solid #23262e; }
+    #error { color: #ff6b6b; font-size: 12px; margin-top: 6px; display: none; }
+    #modelDetail { font-size: 10px; color: #6b7078; margin: 2px 0 6px; line-height: 1.4; }
+  </style>
+</head>
+<body>
+  <h1>SIH 26171 — Privacy Browser Agent</h1>
+  <div class="subtitle">On-device visual perception prototype</div>
+  <div class="phase-tag">PHASE 2: on-device model + heuristic fusion</div>
+
+  <button id="runBtn">Capture &amp; Perceive Current Page</button>
+
+  <div class="status-grid">
+    <div class="status-row"><span>VISION BACKEND</span><span class="status-val" id="backendVal">—</span></div>
+    <div class="status-row"><span>MODEL STATUS</span><span class="status-val" id="modelVal">—</span></div>
+  </div>
+  <div id="modelDetail"></div>
+
+  <ul class="timeline" id="timeline">
+    <li id="tl-capture">○ Screenshot captured locally</li>
+    <li id="tl-perceive">○ Visual perception completed</li>
+    <li class="not-implemented">— PII scan (Phase 3, not yet built)</li>
+    <li class="not-implemented">— Redaction &amp; Privacy Gate (Phase 4, not yet built)</li>
+    <li class="not-implemented">— Reasoning server (Phase 5, not yet built)</li>
+    <li class="not-implemented">— Action validation &amp; execution (Phase 6/7, not yet built)</li>
+  </ul>
+
+  <div id="elements"></div>
+  <div id="error"></div>
+
+  <script src="../../dist/popup.js"></script>
+</body>
+</html>
