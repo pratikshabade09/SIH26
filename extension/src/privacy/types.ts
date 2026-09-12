@@ -1,31 +1,3 @@
-import type { Box, OcrWord } from "../types";
-
-export type OcrHint =
-  | "AADHAAR"
-  | "PAN"
-  | "CARD"
-  | "EMAIL"
-  | "PHONE"
-  | "IFSC"
-  | "ACCOUNT"
-  | "DOB"
-  | "PERSON"
-  | "ADDRESS"
-  | "PASSWORD"
-  | "GENERIC";
-
-export interface OcrRegion {
-  image: string | HTMLCanvasElement;
-  box?: Box;
-  hint?: OcrHint;
-}
-
-export interface OcrResult {
-  words: OcrWord[];
-  text: string;
-  confidence: number;
-  latencyMs: number;
-}
 export interface Box {
   x: number;
   y: number;
